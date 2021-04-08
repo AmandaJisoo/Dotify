@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Dotify</string>
-    <string name="username_btn_text">CHANGE USER</string>
-    <string name="default_username">Amanda Park</string>
-    <string name="album_alt">This is an ablbum cover by amazong singer named Doraemon</string>
-    <string name="album_title">My friend Doraemon</string>
-    <string name="artist_name">Doraemon</string>
-    <string name="prev_btn_description">This button takes back to the previous song</string>
-    <string name="play_btn_description">This button can toggle between play and pause music</string>
-    <string name="next_btn_description">This button takes back to the next song</string>
+    <string name="appName">Dotify</string>
+    <string name="usernameBtnText">CHANGE USER</string>
+    <string name="defaultUsername">Amanda Park</string>
+    <string name="albumAlt">This is an ablbum cover by amazong singer named Doraemon</string>
+    <string name="albumTitle">My friend Doraemon</string>
+    <string name="artistName">Doraemon</string>
+    <string name="prevBtnDescription">This button takes back to the previous song</string>
+    <string name="playBtnDescription">This button can toggle between play and pause music</string>
+    <string name="nextBtnDescription">This button takes back to the next song</string>
 </resources>

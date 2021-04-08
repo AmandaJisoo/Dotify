@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     fun setUpUsernameUpdateButton() {
-        val updateUsernameButton = findViewById<Button>(R.id.username_update_btn);
+        val updateUsernameButton = findViewById<Button>(R.id.usernameUpdateBtn);
         val usernameText = findViewById<TextView>(R.id.username);
         val usernameEditText = findViewById<EditText>(R.id.user_edit_input);
 

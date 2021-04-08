@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/screen_padding"
+    android:padding="@dimen/screenPadding"
     tools:context=".MainActivity">
     <!--maybe guard?-->
 
@@ -13,18 +13,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
-        android:text="@string/default_username"
+        android:text="@string/defaultUsername"
         android:textColor="@color/black"
-        android:textSize="@dimen/text_size"
-        app:layout_constraintBottom_toBottomOf="@+id/username_update_btn"
+        android:textSize="@dimen/defaultTextSize"
+        app:layout_constraintBottom_toBottomOf="@+id/usernameUpdateBtn"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/username_update_btn" />
+        app:layout_constraintTop_toTopOf="@+id/usernameUpdateBtn" />
 
     <Button
-        android:id="@+id/username_update_btn"
+        android:id="@+id/usernameUpdateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/username_btn_text"
+        android:text="@string/usernameBtnText"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,20 +34,20 @@
         android:layout_height="wrap_content"
         android:autofillHints="Username"
         android:inputType="text"
-        android:textSize="@dimen/text_size"
+        android:textSize="@dimen/defaultTextSize"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/username_update_btn"
+        app:layout_constraintBottom_toBottomOf="@+id/usernameUpdateBtn"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/username_update_btn"
+        app:layout_constraintTop_toTopOf="@+id/usernameUpdateBtn"
         tools:ignore="LabelFor" />
 
     <!--    Barrier allows you to specify a constraint based on the height of those two TextViews-->
     <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/user_info__barrier"
+        android:id="@+id/userInfoBarrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="username, username_update_btn, user_edit_input" />
+        app:constraint_referenced_ids="username, usernameUpdateBtn, user_edit_input" />
 
     <!--    https://stackoverflow.com/questions/47114672/what-is-difference-between-barrier-and-guideline-in-constraint-layout-->
     <!--    image for the cover page-->
@@ -56,23 +56,23 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/album_alt"
+        android:contentDescription="@string/albumAlt"
         android:scaleType="fitCenter"
         android:src="@drawable/doraemon"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/user_info__barrier" />
+        app:layout_constraintTop_toBottomOf="@id/userInfoBarrier" />
 
     <!--    app:layout_constraintTop_toBottomOf="@id/guidelineImage"-->
     <TextView
         android:id="@+id/album_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/album_text_size_padding"
-        android:text="@string/album_title"
+        android:layout_marginTop="@dimen/albumTextSizePadding"
+        android:text="@string/albumTitle"
         android:textColor="@color/black"
-        android:textSize="@dimen/album_title_size"
+        android:textSize="@dimen/albumTitleSize"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/album_image" />
@@ -83,9 +83,9 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
-        android:text="@string/artist_name"
+        android:text="@string/artistName"
         android:textColor="@color/black"
-        android:textSize="@dimen/album_name_size"
+        android:textSize="@dimen/albumNameSize"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/album_title" />
@@ -98,18 +98,18 @@
         android:gravity="center_horizontal"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="@dimen/text_size"
+        android:textSize="@dimen/defaultTextSize"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/artist" />
 
     <ImageButton
         android:id="@+id/previousBtn"
-        android:layout_width="@dimen/full_width"
-        android:layout_height="@dimen/play_btn_top_margin"
-        android:layout_marginTop="@dimen/play_btn_top_margin"
+        android:layout_width="@dimen/fullWidth"
+        android:layout_height="@dimen/playBtnTopMargin"
+        android:layout_marginTop="@dimen/playBtnTopMargin"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/play_btn_description"
+        android:contentDescription="@string/playBtnDescription"
         android:scaleType="fitCenter"
         android:src="@drawable/prev_play_btn"
         app:layout_constraintEnd_toStartOf="@+id/playBtn"
@@ -125,7 +125,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/play_btn_description"
+        android:contentDescription="@string/playBtnDescription"
         android:scaleType="fitXY"
         android:src="@drawable/play_btn1"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -138,11 +138,11 @@
 
     <ImageButton
         android:id="@+id/nextPlayBtn"
-        android:layout_width="@dimen/full_width"
-        android:layout_height="@dimen/play_btn_top_margin"
-        android:layout_marginTop="@dimen/play_btn_top_margin"
+        android:layout_width="@dimen/fullWidth"
+        android:layout_height="@dimen/playBtnTopMargin"
+        android:layout_marginTop="@dimen/playBtnTopMargin"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/next_btn_description"
+        android:contentDescription="@string/nextBtnDescription"
         android:scaleType="fitCenter"
         android:src="@drawable/next_play_btn"
         app:layout_constraintEnd_toEndOf="parent"
