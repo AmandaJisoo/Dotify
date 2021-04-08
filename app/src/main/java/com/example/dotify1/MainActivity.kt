@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         setUpNumOfPlay()
         setUpPlayBtn()
         setUpPreviousButton()
+        setUpNextButton()
     }
 
     @SuppressLint("SetTextI18n")
@@ -62,7 +63,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setUpPreviousButton() {
+        val prevPlayBtn= findViewById<ImageButton>(R.id.previousBtn);
+        prevPlayBtn.setOnClickListener() {
+            Toast.makeText(applicationContext,"Skipping to previous track", Toast.LENGTH_SHORT).show();
+        }
+    }
 
+    fun setUpNextButton() {
+        val nextPlatBtn= findViewById<ImageButton>(R.id.next_play_btn)
+        nextPlatBtn.setOnClickListener() {
+            Toast.makeText(applicationContext,"Skipping to next track", Toast.LENGTH_SHORT).show()
+        }
     }
 }
 

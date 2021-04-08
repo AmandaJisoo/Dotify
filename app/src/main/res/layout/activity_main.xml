@@ -105,36 +105,36 @@
         android:gravity="center_horizontal" />
 
     <ImageButton
-        android:id="@+id/previous_play_btn"
-        android:src="@drawable/prev_play_btn"
+        android:id="@+id/previousBtn"
         android:layout_width="@dimen/full_width"
         android:layout_height="@dimen/play_btn_top_margin"
+        android:src="@drawable/prev_play_btn"
         android:contentDescription="@string/play_btn_description"
-        android:scaleType="fitCenter"
-        android:background="@android:color/transparent"
-        android:layout_marginTop="@dimen/play_btn_top_margin"
+        app:layout_constraintEnd_toStartOf="@+id/playBtn"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/num_of_play"
-        app:layout_constraintEnd_toStartOf="@+id/playBtn"  />
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="@dimen/play_btn_top_margin" />
 
+<!--        app:layout_constraintEnd_toStartOf="@+id/next_play_btn" />-->
     <ImageButton
         android:id="@+id/playBtn"
-        android:src="@drawable/play_btn"
-        android:contentDescription="@string/play_btn_description"
         android:layout_width="@dimen/full_width"
         android:layout_height="@dimen/play_btn_top_margin"
+        android:src="@drawable/play_btn"
+        android:contentDescription="@string/play_btn_description"
+        app:layout_constraintEnd_toStartOf="@+id/next_play_btn"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/previousBtn"
+        app:layout_constraintTop_toBottomOf="@+id/num_of_play"
         android:scaleType="fitCenter"
         android:background="@android:color/transparent"
         android:layout_marginTop="@dimen/play_btn_top_margin"
-        android:textColor="@color/black"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@id/previous_play_btn"
-        app:layout_constraintTop_toBottomOf="@+id/num_of_play"
-        app:layout_constraintEnd_toStartOf="@+id/next_play_btn" />
-
+        />
     <ImageButton
         android:id="@+id/next_play_btn"
         android:layout_width="@dimen/full_width"

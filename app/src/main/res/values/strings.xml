@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dotify1</string>
+    <string name="app_name">Dotify</string>
     <string name="username_btn_text">CHANGE USER</string>
     <string name="default_username">Amanda Park</string>
     <string name="album_alt">This is an ablbum cover by amazong singer named Doraemon</string>
