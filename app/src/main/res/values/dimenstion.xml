@@ -5,7 +5,9 @@
     <dimen name="text_size">20sp</dimen>
     <dimen name="album_title_size">29sp</dimen>artistNameSize
     <dimen name="album_name_size">22sp</dimen>
-    <dimen name="play_btn_top_margin">30dp</dimen>
-    <dimen name="full_width">0dp</dimen>
+    <dimen name="play_btn_top_margin">47dp</dimen>
+    <dimen name="full_width">60dp</dimen>
+    <dimen name="numOfPlayTopMargin">6dp</dimen>
+
 </resources>
 

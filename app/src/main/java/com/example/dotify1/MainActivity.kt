@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
-import java.util.*
 import kotlin.random.Random
 
 
@@ -70,7 +69,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setUpNextButton() {
-        val nextPlatBtn= findViewById<ImageButton>(R.id.next_play_btn)
+        val nextPlatBtn= findViewById<ImageButton>(R.id.nextPlayBtn)
         nextPlatBtn.setOnClickListener() {
             Toast.makeText(applicationContext,"Skipping to next track", Toast.LENGTH_SHORT).show()
         }
