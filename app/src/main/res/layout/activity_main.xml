@@ -52,7 +52,7 @@
     <!--    https://stackoverflow.com/questions/47114672/what-is-difference-between-barrier-and-guideline-in-constraint-layout-->
     <!--    image for the cover page-->
     <ImageButton
-        android:id="@+id/album_image"
+        android:id="@+id/albumImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@android:color/transparent"
@@ -75,7 +75,7 @@
         android:textSize="@dimen/albumTitleSize"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/album_image" />
+        app:layout_constraintTop_toBottomOf="@id/albumImage" />
 
     <TextView
         android:id="@+id/artist"
@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@id/album_title" />
 
     <TextView
-        android:id="@+id/num_of_play"
+        android:id="@+id/numOfPlay"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/numOfPlayTopMargin"
@@ -116,7 +116,7 @@
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/num_of_play" />
+        app:layout_constraintTop_toBottomOf="@+id/numOfPlay" />
 
 
     <ImageButton
@@ -133,7 +133,7 @@
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@id/previousBtn"
-        app:layout_constraintTop_toBottomOf="@+id/num_of_play"
+        app:layout_constraintTop_toBottomOf="@+id/numOfPlay"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
@@ -148,7 +148,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/playBtn"
-        app:layout_constraintTop_toBottomOf="@+id/num_of_play" />
+        app:layout_constraintTop_toBottomOf="@+id/numOfPlay" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
