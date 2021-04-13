@@ -1,5 +1,5 @@
 # Dotify
-# Your App by Amanda Park
+## Your App by Amanda Park
 # App Description
 This is a music app like Spotify
 1. A user can play click prev, play and next btn
