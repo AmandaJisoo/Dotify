@@ -1,7 +1,7 @@
 # Dotify
 # Your App by Amanda Park
 
-This is a social media app that can upload images.
+This is a music app like Spotify like 
 
 ## Extra credit
 I have completed the following 
