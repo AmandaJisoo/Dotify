@@ -1,7 +1,7 @@
 # Dotify
 # Your App by Amanda Park
 
-This is a music app like Spotify like 
+This is a music app like Spotify 
 
 ## Extra credit
 I have completed the following 
