@@ -16,8 +16,3 @@ respectively (+ .5)
 <img src="./dotify1.jpeg" alt="Screenshot of the app" height="500" />
 
 
-## Installation & Usage
-N/A or You must click on button X to see Activity B.
-Login with the credentials:
-username: harry
-password: expecto_patronum
