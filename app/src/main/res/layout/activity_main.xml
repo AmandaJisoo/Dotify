@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:padding="@dimen/screenPadding"
     tools:context=".MainActivity">
-    <!--maybe guard?-->
 
     <TextView
         android:id="@+id/username"
@@ -41,7 +40,6 @@
         app:layout_constraintTop_toTopOf="@+id/usernameUpdateBtn"
         tools:ignore="LabelFor" />
 
-    <!--    Barrier allows you to specify a constraint based on the height of those two TextViews-->
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/userInfoBarrier"
         android:layout_width="wrap_content"
@@ -64,7 +62,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/userInfoBarrier" />
 
-    <!--    app:layout_constraintTop_toBottomOf="@id/guidelineImage"-->
     <TextView
         android:id="@+id/album_title"
         android:layout_width="wrap_content"
