@@ -4,7 +4,7 @@
 This is a social media app that can upload images.
 
 ## Extra credit
-I have vompleted the following 
+I have completed the following 
 
 1. A user is not allowed to apply a new username if the edit text field is empty. (+ 0.25)
 2. Long pressing on the cover image changes the text color of the play count to a different color. (+ 0.25)
