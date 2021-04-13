@@ -1,7 +1,12 @@
 # Dotify
 # Your App by Amanda Park
+# App Description
+This is a music app like Spotify
+1. A user can play click prev, play and next btn
+2. User can change username 
+3. User can see the number of play 
+4. User can change the textcolor of number of music played by holding the photo long
 
-This is a music app like Spotify 
 
 ## Extra credit
 I have completed the following 
