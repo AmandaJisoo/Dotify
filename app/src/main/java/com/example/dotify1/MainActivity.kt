@@ -6,19 +6,45 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
+import com.ericchee.songdataprovider.Song
+import com.example.dotify1.databinding.ActivitySongListBinding
 import kotlin.random.Random
 
 
 class MainActivity : AppCompatActivity() {
     var initalNumOfPlay = Random.nextInt(20, 200)
+    companion object {
+        const val ALBUM_KEY = "ALBUM_KEY"
+    }
+
+
     @RequiresApi(Build.VERSION_CODES.M)
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        //clicked from the list of songs
+        val pickedSong: Song? = intent.getParcelableExtra(ALBUM_KEY)
+
+        if (pickedSong != null) {
+            //how can I not do this?
+            val albumImage = findViewById<ImageButton>(R.id.albumImage);
+            val albumTitle = findViewById<TextView>(R.id.album_title);
+            val artist = findViewById<TextView>(R.id.artist);
+
+            albumImage.setImageResource(pickedSong.largeImageID)
+            albumTitle.text = pickedSong.title
+            artist.text = pickedSong.artist
+        }
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         setUpUsernameUpdateButton()
         setUpNumOfPlay()
         setUpPlayBtn()
@@ -57,6 +83,7 @@ class MainActivity : AppCompatActivity() {
         songNumber.text = "$initalNumOfPlay plays"
     }
 
+    @SuppressLint("SetTextI18n")
     fun setUpPlayBtn() {
         val playButton= findViewById<ImageView>(R.id.playBtn);
         val numOfPlay = findViewById<TextView>(R.id.numOfPlay)
@@ -89,6 +116,15 @@ class MainActivity : AppCompatActivity() {
             numOfPlay.setTextColor(Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)))
             return@setOnLongClickListener true
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            finish()
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }
 

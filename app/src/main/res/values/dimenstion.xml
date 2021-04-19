@@ -9,5 +9,6 @@
     <dimen name="fullWidth">60dp</dimen>
     <dimen name="numOfPlayTopMargin">6dp</dimen>
     <dimen name="horizontalWeight">1</dimen>
+    <dimen name="listDefaultMargin">10dp</dimen>
 </resources>
 

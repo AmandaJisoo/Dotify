@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/screenPadding"
+    android:foreground="?selectableItemBackground"
+    android:id="@+id/song">
+
+    <ImageView
+        android:id="@+id/albumCover"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="@dimen/fullWidth"
+        android:layout_height="@dimen/fullWidth"
+        app:srcCompat="@drawable/doraemon"
+        android:contentDescription="@string/albumAlt" />
+
+    <TextView
+        android:id="@+id/songTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/defaultTextSize"
+        app:layout_constraintStart_toEndOf="@+id/albumCover"
+        app:layout_constraintTop_toBottomOf="@+id/singer"
+        android:layout_marginStart="@dimen/listDefaultMargin"
+        tools:text="title" />
+
+    <TextView
+        android:id="@+id/singer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/defaultTextSize"
+        app:layout_constraintStart_toEndOf="@+id/albumCover"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/listDefaultMargin"
+        android:layout_marginTop="@dimen/listDefaultMargin"
+        tools:text="artist"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
