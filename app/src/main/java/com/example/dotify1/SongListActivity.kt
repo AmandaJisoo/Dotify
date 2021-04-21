@@ -42,6 +42,7 @@ class SongListActivity : AppCompatActivity() {
             }
 
             curSong.setOnClickListener {
+                Log.i("curSong", "clicked2 maybe")
                 onClickToSpecificAlmbum()
             }
 
@@ -57,9 +58,5 @@ class SongListActivity : AppCompatActivity() {
             Log.i("curSong", "clicked2")
 
         }
-//        else {
-//            Toast.makeText(getBaseContext(), "No song selected", Toast.LENGTH_LONG).show()
-//            Log.i("curSong", "clicked3")
-//        }
     }
 }

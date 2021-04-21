@@ -7,6 +7,8 @@
     tools:context=".SongListActivity"
     android:id="@+id/listOfSongs">
 
+    <!-- app:layout_constraintBottom_toTopOf="@+id/songContainer"-->
+    <!--    allows the button to be located below the songlist without interfering the view -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/songList"
         android:layout_width="0dp"
@@ -17,6 +19,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:listitem="@layout/song" />
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/songContainer"
