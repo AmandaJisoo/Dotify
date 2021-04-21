@@ -9,5 +9,6 @@
     <string name="playBtnDescription">This button can toggle between play and pause music</string>
     <string name="nextBtnDescription">This button takes back to the next song</string>
     <string name="shuffleBtnText">shuffle</string>
-    <string name="song_container">%s - %s</string>
+    <string name="songContainer">%s - %s</string>
+    <string name="deleteMessage">%s has been clicked to remove.</string>
 </resources>

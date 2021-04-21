@@ -21,18 +21,22 @@ class SongListActivity : AppCompatActivity() {
         binding = ActivitySongListBinding.inflate(layoutInflater).apply { setContentView(root) }
 
         val listOfSongs = SongDataProvider.getAllSongs() as MutableList<Song>
+        val adapter = SongListAdapter(listOfSongs)
 
         with(binding) {
-            val adapter = SongListAdapter(listOfSongs)
             songList.adapter = adapter
 
             adapter.onSongClickListener = { song ->
                 songContainer.isInvisible = false
-                curSong.text = getString(R.string.song_container).format(song.title, song.artist)
+                curSong.text = getString(R.string.songContainer).format(song.title, song.artist)
                 //TODO:boolean needed?
                 playingSing = song
             }
 
+            adapter.onSongLongPressClickListener = {title, position ->
+                Toast.makeText(this@SongListActivity, getString(R.string.deleteMessage).format(title), Toast.LENGTH_SHORT).show()
+                adapter.songList.removeAt(position)
+            }
 
             shuffleButton.setOnClickListener {
                 Log.i("shuffled", "clicked1")
@@ -45,7 +49,6 @@ class SongListActivity : AppCompatActivity() {
                 Log.i("curSong", "clicked2 maybe")
                 onClickToSpecificAlmbum()
             }
-
         }
     }
 

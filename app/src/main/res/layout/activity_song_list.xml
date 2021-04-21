@@ -7,7 +7,6 @@
     tools:context=".SongListActivity"
     android:id="@+id/listOfSongs">
 
-    <!-- app:layout_constraintBottom_toTopOf="@+id/songContainer"-->
     <!--    allows the button to be located below the songlist without interfering the view -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/songList"
@@ -23,14 +22,12 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/songContainer"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:padding="12dp"
-            android:background="@color/defaultBackground"
-            android:elevation="30dp"
+            android:elevation="@dimen/playingSongInfoElevation"
             android:visibility="gone" >
 
             <TextView
@@ -42,18 +39,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:ellipsize="end"
-                android:textSize="18sp"
+                android:textSize="@dimen/defaultTextSize"
                 android:layout_marginEnd="@dimen/screenPadding"
                 android:maxLines="1"
                 tools:text="Title" />
 
             <Button
                 android:id="@+id/shuffleButton"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 android:text="@string/shuffleBtnText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

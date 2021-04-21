@@ -10,5 +10,7 @@
     <dimen name="numOfPlayTopMargin">6dp</dimen>
     <dimen name="horizontalWeight">1</dimen>
     <dimen name="listDefaultMargin">10dp</dimen>
+    <dimen name="playingSongInfoElevation">30dp</dimen>
+    <dimen name="songFullWidth">0dp</dimen>
 </resources>
 

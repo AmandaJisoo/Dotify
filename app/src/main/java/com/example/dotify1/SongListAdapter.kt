@@ -2,6 +2,7 @@ package com.example.dotify1
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ericchee.songdataprovider.Song
@@ -9,6 +10,7 @@ import com.example.dotify1.databinding.SongBinding
 
 class SongListAdapter(var songList: MutableList<Song>) : RecyclerView.Adapter<SongListAdapter.SongViewHolder>() {
     var onSongClickListener: ((song: Song) -> Unit)? = null
+    var onSongLongPressClickListener: ((title: String, position: Int) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongViewHolder {
         val binding = SongBinding.inflate(LayoutInflater.from(parent.context))
@@ -26,6 +28,12 @@ class SongListAdapter(var songList: MutableList<Song>) : RecyclerView.Adapter<So
             albumCover.setImageResource(curSong.smallImageID)
             song.setOnClickListener{
                 onSongClickListener?.invoke(curSong)
+            }
+            //maybe?
+            song.setOnLongClickListener {
+                onSongLongPressClickListener?.invoke(curSong.title, position)
+                notifyDataSetChanged()
+                return@setOnLongClickListener true
             }
         }
     }
