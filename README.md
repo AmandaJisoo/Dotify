@@ -2,10 +2,9 @@
 ## Your App by Amanda Park
 # App Description
 This is a music app like Spotify
-1. A user can play click prev, play and next btn
-2. User can change username 
-3. User can see the number of play 
-4. User can change the textcolor of number of music played by holding the photo long
+1. A user scroll the list of songs loaded from API
+2. User can see summary fo the song on the mini play bar
+3. User can the mini player to the detailed music page(navigate to the new page)
 
 
 ## Extra credit
