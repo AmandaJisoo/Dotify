@@ -11,11 +11,11 @@ This is a music app like Spotify
 ## Extra credit
 I have completed the following 
 
-1. A user is not allowed to apply a new username if the edit text field is empty. (+ 0.25)
-2. Long pressing on the cover image changes the text color of the play count to a different color. (+ 0.25)
-3. If using ConstraintLayout, utilize a Barrier or Guideline somewhere with a view constrained to it (+0.25)
-4. All hardcoded dimensions & colors are extracted into res/values/dimens.xml & res/values/colors.xml
-respectively (+ .5)
+1. Show a stock Android back arrow button, ←, in the Header/Toolbar of Activity B. When clicked, it
+should navigate back to SongListActivity (+.25)
+2. (+.25) Long pressing on an item should delete that song on the list.
+a. It should show a Toast that says what song was deleted.
+3. When a user presses shuffle, the list should animate the changes using DiffUtil (+1
 
 ## Demo Video
 https://photos.google.com/share/AF1QipMWacpJ2AYBuQYEYvRyM0mGQ0Qqmt14fRgzKBcnhsvDfE-e51EQaOYJNErIy2R0tA/photo/AF1QipMWfKqyqLwzaQ7k3zPtBcc524JAQFYxxpKevhNv?key=aEhMcWxHeFhVS2Q5Zmxqd0JZS1VJQl9pN0JtcEF3
