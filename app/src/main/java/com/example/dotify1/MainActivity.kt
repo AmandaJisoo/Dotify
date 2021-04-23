@@ -28,8 +28,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        //clicked from the list of songs
         val pickedSong: Song? = intent.getParcelableExtra(ALBUM_KEY)
 
         if (pickedSong != null) {

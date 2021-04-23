@@ -39,27 +39,21 @@ class SongListActivity : AppCompatActivity() {
             }
 
             shuffleButton.setOnClickListener {
-                Log.i("shuffled", "clicked1")
-
                 val shuffedSongs = listOfSongs.shuffled()
                 adapter.updateSongs(shuffedSongs)
             }
 
             curSong.setOnClickListener {
-                Log.i("curSong", "clicked2 maybe")
                 onClickToSpecificAlmbum()
             }
         }
     }
 
-    //TODO: IS this bad? for the toast
     fun onClickToSpecificAlmbum() {
         if (playingSing != null) {
             val intent = Intent(this@SongListActivity, MainActivity::class.java)
             intent.putExtra(ALBUM_KEY, playingSing)
             startActivity(intent)
-            Log.i("curSong", "clicked2")
-
         }
     }
 }

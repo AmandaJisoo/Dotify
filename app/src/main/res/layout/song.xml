@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="0dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/screenPadding"
     android:foreground="?selectableItemBackground"
@@ -19,8 +19,8 @@
 
     <TextView
         android:id="@+id/songTitle"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textSize="@dimen/defaultTextSize"
         app:layout_constraintStart_toEndOf="@+id/albumCover"
         app:layout_constraintTop_toBottomOf="@+id/singer"
@@ -29,8 +29,8 @@
 
     <TextView
         android:id="@+id/singer"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textSize="@dimen/defaultTextSize"
         app:layout_constraintStart_toEndOf="@+id/albumCover"
         app:layout_constraintTop_toTopOf="parent"

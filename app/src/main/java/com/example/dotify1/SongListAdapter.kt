@@ -29,7 +29,7 @@ class SongListAdapter(var songList: MutableList<Song>) : RecyclerView.Adapter<So
             song.setOnClickListener{
                 onSongClickListener?.invoke(curSong)
             }
-            //maybe?
+
             song.setOnLongClickListener {
                 onSongLongPressClickListener?.invoke(curSong.title, position)
                 notifyDataSetChanged()
