@@ -12,5 +12,6 @@
     <dimen name="listDefaultMargin">10dp</dimen>
     <dimen name="playingSongInfoElevation">50dp</dimen>
     <dimen name="songFullWidth">0dp</dimen>
+    <dimen name="heightOfMinPlayer">10dp</dimen>
 </resources>
 
