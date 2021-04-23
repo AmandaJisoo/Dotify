@@ -17,7 +17,7 @@ I have completed the following
 4. All hardcoded dimensions & colors are extracted into res/values/dimens.xml & res/values/colors.xml
 respectively (+ .5)
 
-## Screenshots
-<img src="./dotify1.jpeg" alt="Screenshot of the app" height="500" />
+## Demo Video
+https://photos.google.com/share/AF1QipMWacpJ2AYBuQYEYvRyM0mGQ0Qqmt14fRgzKBcnhsvDfE-e51EQaOYJNErIy2R0tA/photo/AF1QipMWfKqyqLwzaQ7k3zPtBcc524JAQFYxxpKevhNv?key=aEhMcWxHeFhVS2Q5Zmxqd0JZS1VJQl9pN0JtcEF3
 
 
