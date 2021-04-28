@@ -10,15 +10,15 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.ericchee.songdataprovider.Song
 
-private const val SONG_KEY = "song"
+private const val SONG = "song"
 private const val NUM_OF_COUNT = "playCount"
 
 
-fun activateSettingsActivity(context: Context, song: Song, playCount: Int) {
+fun activateSettingsActivity(context: Context, song: Song, numOfPlay: Int) {
     with(context) {
         startActivity(Intent(this, SettingsActivity::class.java).apply {
-            putExtra(SONG_KEY, song)
-            putExtra(NUM_OF_COUNT, playCount)
+            putExtra(SONG, song)
+            putExtra(NUM_OF_COUNT, numOfPlay)
         })
     }
 }
@@ -40,4 +40,5 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp() = navController.navigateUp()
+
 }
