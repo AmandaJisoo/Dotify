@@ -5,20 +5,23 @@ import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
-import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
 import com.ericchee.songdataprovider.Song
-import com.example.dotify1.databinding.ActivitySongListBinding
 import kotlin.random.Random
 
 
-class MainActivity : AppCompatActivity() {
-    var initalNumOfPlay = Random.nextInt(20, 200)
+class PlayerActivity : AppCompatActivity() {
+    private var initalNumOfPlay: Int = Random.nextInt(20, 200)
+    private lateinit var curSong: Song
+
     companion object {
         const val ALBUM_KEY = "ALBUM_KEY"
+        const val NUM_OF_PLAY = "numOfSong"
+
+//        const val SONG_KEY = ""
+//        const val
     }
 
 
@@ -29,11 +32,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val pickedSong: Song? = intent.getParcelableExtra(ALBUM_KEY)
+        val songCount = findViewById<TextView>(R.id.numOfPlay)
+
 
         if (pickedSong != null) {
+
             //how can I not do this?
+            curSong = pickedSong
             val albumImage = findViewById<ImageButton>(R.id.albumImage);
-            val albumTitle = findViewById<TextView>(R.id.album_title);
+            val albumTitle = findViewById<TextView>(R.id.albumTitle);
             val artist = findViewById<TextView>(R.id.artist);
 
             albumImage.setImageResource(pickedSong.largeImageID)
@@ -43,36 +50,20 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        setUpUsernameUpdateButton()
+        if (savedInstanceState != null) {
+            songCount.text =  savedInstanceState.getInt(NUM_OF_PLAY, 0).toString()
+            initalNumOfPlay = savedInstanceState.getInt(NUM_OF_PLAY, 0)
+        } else  {
+            songCount.text = initalNumOfPlay.toString()
+        }
+
+
         setUpNumOfPlay()
         setUpPlayBtn()
         setUpPreviousButton()
         setUpNextButton()
         chageAlbumCoverColor()
-    }
-
-    @SuppressLint("SetTextI18n")
-    fun setUpUsernameUpdateButton() {
-        val updateUsernameButton = findViewById<Button>(R.id.usernameUpdateBtn);
-        val usernameText = findViewById<TextView>(R.id.username);
-        val usernameEditText = findViewById<EditText>(R.id.user_edit_input);
-
-        updateUsernameButton.setOnClickListener() {
-            if (updateUsernameButton.text == "CHANGE USER") {
-                Log.i("once", "here")
-                updateUsernameButton.text = "Apply";
-                usernameEditText.setText("");
-                usernameText.visibility = View.GONE;
-                usernameEditText.visibility = View.VISIBLE;
-            } else if (updateUsernameButton.text == "Apply" && usernameEditText.text.toString() != "") {
-                updateUsernameButton.text = "CHANGE USER";
-                usernameText.text = usernameEditText.text.toString();
-                usernameEditText.visibility = View.GONE;
-                usernameText.visibility = View.VISIBLE;
-            } else {
-                Toast.makeText(this, "Username cannot be empty", Toast.LENGTH_SHORT).show()
-            }
-        }
+        setUpSettingsButton()
     }
 
     @SuppressLint("SetTextI18n")
@@ -83,7 +74,7 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     fun setUpPlayBtn() {
-        val playButton= findViewById<ImageView>(R.id.playBtn);
+        val playButton= findViewById<ImageButton>(R.id.playBtn);
         val numOfPlay = findViewById<TextView>(R.id.numOfPlay)
         playButton.setOnClickListener() {
             initalNumOfPlay++;
@@ -116,6 +107,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun setUpSettingsButton() {
+        val nextPlatBtn= findViewById<Button>(R.id.settingBtn)
+        nextPlatBtn.setOnClickListener() {
+            setUpSettingAcivity()
+        }
+
+    }
+    private fun setUpSettingAcivity() {
+        activateSettingsActivity(this@PlayerActivity, curSong, initalNumOfPlay)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
             finish()
@@ -123,6 +125,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt(NUM_OF_PLAY, initalNumOfPlay)
+        super.onSaveInstanceState(outState)
     }
 }
 

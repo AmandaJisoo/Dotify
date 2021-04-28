@@ -13,5 +13,13 @@
     <dimen name="playingSongInfoElevation">50dp</dimen>
     <dimen name="songFullWidth">0dp</dimen>
     <dimen name="heightOfMinPlayer">10dp</dimen>
+    <dimen name="settingsBtnMargin">25dp</dimen>
+    <dimen name="statistic_album_margin">25dp</dimen>
+    <dimen name="statistic_padding">25dp</dimen>
+    <dimen name="albumImage">0dp</dimen>
+    <dimen name="albumImageBeginMargin">35dp</dimen>
+    <dimen name="playBtn">100dp</dimen>
+    <dimen name="playBtnsMargin">40dp</dimen>
+    <dimen name="username">40dp</dimen>
 </resources>
 
