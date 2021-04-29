@@ -16,13 +16,13 @@
     <string name="profile">PROFILE</string>
     <string name="profileStatistics">PROFILE STATISTICS</string>
     <string name="profileAbout">ABOUT</string>
-    <string name="email">wd1204@uw.edu</string>
-    <string name="joinedDate">10/23/21</string>
-    <string name="nickname">Cute Cat</string>
+    <string name="email">Email: wd1204@uw.edu</string>
+    <string name="joinedDate">Joined Date: 10/23/21</string>
+    <string name="nickname">Nickname: Cute Cat</string>
     <string name="about_creator">Creator: Amanda Park</string>
     <string name="about_website">erichee.com</string>
     <string name="version">Version: %s</string>
-    <string name="statInfo">Title: %s  Count: %d</string>
-    <string name="playNum"> %s Play </string>
+    <string name="statInfo">Title: %s - Count: %d</string>
+    <string name="playNum"> %s Plays </string>
 
 </resources>

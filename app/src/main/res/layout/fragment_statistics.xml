@@ -25,6 +25,7 @@
         android:layout_margin="@dimen/statistic_album_margin"
         android:padding="@dimen/statistic_padding"
         android:textSize="@dimen/defaultTextSize"
+        android:textColor="@color/black"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
