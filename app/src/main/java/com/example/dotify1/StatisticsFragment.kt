@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.dotify1.databinding.FragmentStatisticsBinding
@@ -18,6 +19,7 @@ class StatisticsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentStatisticsBinding.inflate(inflater)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Statistics"
 
         with(binding) {
             settingAlbumCover.setImageResource(safeArgs.curSong.largeImageID)
