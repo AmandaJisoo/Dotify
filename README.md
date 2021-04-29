@@ -3,13 +3,13 @@
 Sorry I accidently updated hw2 readme.md
 
 ## Your App by Amanda Park
-# App Description
+## App Description
 This is a music app like Spotify
 1. A user can rotate screen and data persists
 2. A user can click setting icon on the nav bar and see fragment settings
 3. A user able to visit profile, profile statistics, and about page
 
-# Constraint
+## Constraint
 On the song list view, please click on text not empty spaces. 
 
 ## Extra credit
