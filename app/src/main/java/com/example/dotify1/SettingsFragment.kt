@@ -30,7 +30,8 @@ class SettingsFragment : Fragment() {
             }
 
             StatisticsBtn.setOnClickListener{
-                navController.navigate(SettingsFragmentDirections.actionSettingsFragmentToStatisticsFragment(safeArgs.numOfPlay, safeArgs.curSong))
+                navController.navigate(SettingsFragmentDirections.
+                                        actionSettingsFragmentToStatisticsFragment(safeArgs.numOfPlay, safeArgs.curSong))
             }
 
             aboutBtn.setOnClickListener{

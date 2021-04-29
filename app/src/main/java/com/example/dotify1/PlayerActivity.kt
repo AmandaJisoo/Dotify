@@ -17,27 +17,21 @@ class PlayerActivity : AppCompatActivity() {
     private lateinit var curSong: Song
 
     companion object {
-        const val ALBUM_KEY = "ALBUM_KEY"
+        const val CUR_SONG = "curSong"
         const val NUM_OF_PLAY = "numOfSong"
-
-//        const val SONG_KEY = ""
-//        const val
     }
 
 
     @RequiresApi(Build.VERSION_CODES.M)
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val pickedSong: Song? = intent.getParcelableExtra(ALBUM_KEY)
+        val pickedSong: Song? = intent.getParcelableExtra(CUR_SONG)
         val songCount = findViewById<TextView>(R.id.numOfPlay)
 
 
         if (pickedSong != null) {
-
-            //how can I not do this?
             curSong = pickedSong
             val albumImage = findViewById<ImageButton>(R.id.albumImage);
             val albumTitle = findViewById<TextView>(R.id.albumTitle);
@@ -57,7 +51,6 @@ class PlayerActivity : AppCompatActivity() {
             songCount.text = initalNumOfPlay.toString()
         }
 
-
         setUpNumOfPlay()
         setUpPlayBtn()
         setUpPreviousButton()
@@ -66,19 +59,18 @@ class PlayerActivity : AppCompatActivity() {
         setUpSettingsButton()
     }
 
-    @SuppressLint("SetTextI18n")
+
     fun setUpNumOfPlay() {
         val songNumber = findViewById<TextView>(R.id.numOfPlay)
-        songNumber.text = "$initalNumOfPlay plays"
+        songNumber.text = String.format(getString(R.string.playNum), this.initalNumOfPlay.toString())
     }
 
-    @SuppressLint("SetTextI18n")
     fun setUpPlayBtn() {
         val playButton= findViewById<ImageButton>(R.id.playBtn);
         val numOfPlay = findViewById<TextView>(R.id.numOfPlay)
         playButton.setOnClickListener() {
             initalNumOfPlay++;
-            numOfPlay.text = "$initalNumOfPlay plays";
+            numOfPlay.text = String.format(getString(R.string.playNum), this.initalNumOfPlay.toString())
         }
     }
 
@@ -110,11 +102,11 @@ class PlayerActivity : AppCompatActivity() {
     fun setUpSettingsButton() {
         val nextPlatBtn= findViewById<Button>(R.id.settingBtn)
         nextPlatBtn.setOnClickListener() {
-            setUpSettingAcivity()
+            setUpSettingActivity()
         }
 
     }
-    private fun setUpSettingAcivity() {
+    private fun setUpSettingActivity() {
         activateSettingsActivity(this@PlayerActivity, curSong, initalNumOfPlay)
     }
 

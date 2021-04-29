@@ -10,14 +10,14 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.ericchee.songdataprovider.Song
 
 private const val SONG = "curSong"
-private const val PLAY_COUNT_KEY = "numOfPlay"
+private const val Num_OF_PLAY = "numOfPlay"
 
 
-fun activateSettingsActivity(context: Context, song: Song, playCount: Int) {
+fun activateSettingsActivity(context: Context, curSong: Song, numOfPlay: Int) {
     with(context) {
         startActivity(Intent(this, SettingsActivity::class.java).apply {
-            putExtra(SONG, song)
-            putExtra(PLAY_COUNT_KEY, playCount)
+            putExtra(SONG, curSong)
+            putExtra(Num_OF_PLAY, numOfPlay)
         })
     }
 }

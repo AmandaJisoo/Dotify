@@ -23,4 +23,6 @@
     <string name="about_website">erichee.com</string>
     <string name="version">Version: %s</string>
     <string name="statInfo">Title: %s  Count: %d</string>
+    <string name="playNum"> %s Play </string>
+
 </resources>

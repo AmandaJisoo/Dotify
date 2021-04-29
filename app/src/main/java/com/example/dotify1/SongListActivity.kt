@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.core.view.isInvisible
 import com.ericchee.songdataprovider.Song
 import com.ericchee.songdataprovider.SongDataProvider
-import com.example.dotify1.PlayerActivity.Companion.ALBUM_KEY
 import com.example.dotify1.databinding.ActivitySongListBinding
 
 private const val CUR_SONG = "curSong"
@@ -45,7 +44,7 @@ class SongListActivity : AppCompatActivity() {
             }
 
             curSong.setOnClickListener {
-                onClickToSpecificAlmbum()
+                onClickToSpecificAlbum()
             }
 
             //restore information when start
@@ -54,20 +53,19 @@ class SongListActivity : AppCompatActivity() {
                 if (savedCurrentlyPlaying != null ) {
                     songContainer.isInvisible = false
                     playingSing = savedCurrentlyPlaying
-                    curSong.text = root.context.getString(R.string.songContainer, savedCurrentlyPlaying.title, savedCurrentlyPlaying.artist)
+                    curSong.text = root.context.getString(R.string.songContainer,
+                                                            savedCurrentlyPlaying.title,
+                                                            savedCurrentlyPlaying.artist)
                 }
             }
-//            else {
-//                songContainer.isInvisible = true
-//            }
         }
     }
 
 
-    fun onClickToSpecificAlmbum() {
+    fun onClickToSpecificAlbum() {
         if (playingSing != null) {
             val intent = Intent(this@SongListActivity, PlayerActivity::class.java)
-            intent.putExtra(ALBUM_KEY, playingSing)
+            intent.putExtra(CUR_SONG, playingSing)
             startActivity(intent)
         }
     }
