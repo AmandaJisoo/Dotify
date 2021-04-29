@@ -1,6 +1,6 @@
 # Dotify
 ## message
-sorry I accidently updated hw2 readme.md
+Sorry I accidently updated hw2 readme.md
 
 ## Your App by Amanda Park
 # App Description
