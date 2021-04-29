@@ -6,6 +6,8 @@ This is a music app like Spotify
 2. A user can click setting icon on the nav bar and see fragment settings
 3. A user able to visit profile, profile statistics, and about page
 
+# Constraint
+On the song list view, please click on text not empty spaces. 
 
 ## Extra credit
 I have completed the following 
