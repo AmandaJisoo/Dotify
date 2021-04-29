@@ -19,6 +19,13 @@
         <action
             android:id="@+id/action_settingsFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <argument
+            android:name="numOfPlay"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="curSong"
+            app:argType="com.ericchee.songdataprovider.Song" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -36,11 +43,11 @@
         android:label="fragment_statistics"
         tools:layout="@layout/fragment_statistics" >
         <argument
-            android:name="curSongPlaying"
-            app:argType="com.ericchee.songdataprovider.Song" />
-        <argument
             android:name="numOfPlay"
             app:argType="integer"
             android:defaultValue="0" />
+        <argument
+            android:name="curSong"
+            app:argType="com.ericchee.songdataprovider.Song" />
     </fragment>
 </navigation>
