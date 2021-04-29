@@ -1,10 +1,10 @@
 package com.example.dotify1
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
 import androidx.annotation.RequiresApi
@@ -56,7 +56,6 @@ class PlayerActivity : AppCompatActivity() {
         setUpPreviousButton()
         setUpNextButton()
         chageAlbumCoverColor()
-        setUpSettingsButton()
     }
 
 
@@ -99,22 +98,30 @@ class PlayerActivity : AppCompatActivity() {
         }
     }
 
-    fun setUpSettingsButton() {
-        val nextPlatBtn= findViewById<Button>(R.id.settingBtn)
-        nextPlatBtn.setOnClickListener() {
-            setUpSettingActivity()
-        }
+//    fun setUpSettingsButton() {
+//        val nextPlatBtn= findViewById<Button>(R.id.settingBtn)
+//        nextPlatBtn.setOnClickListener() {
+//            setUpSettingActivity()
+//        }
+//    }
 
-    }
     private fun setUpSettingActivity() {
         activateSettingsActivity(this@PlayerActivity, curSong, initalNumOfPlay)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+
+
         if (item.itemId == android.R.id.home) {
             finish()
             return true
         }
+
+        if (item.itemId == R.id.action_settings) {
+            setUpSettingActivity()
+        }
+
 
         return super.onOptionsItemSelected(item)
     }
@@ -123,6 +130,16 @@ class PlayerActivity : AppCompatActivity() {
         outState.putInt(NUM_OF_PLAY, initalNumOfPlay)
         super.onSaveInstanceState(outState)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.nav_menu_items, menu)
+
+        return true
+    }
+
+
 }
+
+
 
 

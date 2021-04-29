@@ -1,6 +1,5 @@
 <resources>
     <string name="appName">Dotify</string>
-    <string name="settings">Settings</string>
     <string name="defaultUsername">Amanda Park</string>
     <string name="albumAlt">This is an ablbum cover by amazong singer named Doraemon</string>
     <string name="albumTitle">My friend Doraemon</string>
@@ -11,8 +10,6 @@
     <string name="shuffleBtnText">shuffle</string>
     <string name="songContainer">%s - %s</string>
     <string name="deleteMessage">%s has been clicked to remove.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="profile">PROFILE</string>
     <string name="profileStatistics">PROFILE STATISTICS</string>
     <string name="profileAbout">ABOUT</string>
@@ -24,5 +21,6 @@
     <string name="version">Version: %s</string>
     <string name="statInfo">Title: %s - Count: %d</string>
     <string name="playNum"> %s Plays </string>
+    <string name="settings">Settings</string>
 
 </resources>

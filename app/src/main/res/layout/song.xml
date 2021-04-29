@@ -8,6 +8,7 @@
     android:foreground="?selectableItemBackground"
     android:id="@+id/song">
 
+
     <ImageView
         android:id="@+id/albumCover"
         app:layout_constraintStart_toStartOf="parent"
