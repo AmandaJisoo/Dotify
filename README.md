@@ -17,6 +17,6 @@ a. It should show a Toast that says what song was deleted.
 3. When a user presses shuffle, the list should animate the changes using DiffUtil (+1
 
 ## Demo Video
-https://photos.google.com/share/AF1QipMWacpJ2AYBuQYEYvRyM0mGQ0Qqmt14fRgzKBcnhsvDfE-e51EQaOYJNErIy2R0tA/photo/AF1QipMWfKqyqLwzaQ7k3zPtBcc524JAQFYxxpKevhNv?key=aEhMcWxHeFhVS2Q5Zmxqd0JZS1VJQl9pN0JtcEF3
+https://drive.google.com/file/d/1YbpV1d2Gowab0pEwSDXWli32oTgN3rr0/view?usp=sharing
 
 
