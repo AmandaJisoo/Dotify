@@ -6,13 +6,13 @@ import com.example.dotify1.repository.DataRepository
 
 class DotifyApplication : Application() {
     lateinit var dataRepository: DataRepository
-    lateinit var accountManager: ApiManager
+    lateinit var apiManager: ApiManager
 
     override fun onCreate() {
         super.onCreate()
 
         this.dataRepository = DataRepository()
-        this.accountManager = ApiManager()
+        this.apiManager = ApiManager()
 
     }
 }
