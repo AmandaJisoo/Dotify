@@ -22,5 +22,11 @@
     <string name="statInfo">Title: %s - Count: %d</string>
     <string name="playNum"> %s Plays </string>
     <string name="settings">Settings</string>
+    <string name="userNamePlaceholder">Username</string>
+    <string name="fetchError">User profile download failed</string>
+    <string name="profileDescription">User profile pic</string>
+
+
+
 
 </resources>

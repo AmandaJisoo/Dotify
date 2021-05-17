@@ -21,5 +21,8 @@
     <dimen name="playBtn">100dp</dimen>
     <dimen name="playBtnsMargin">40dp</dimen>
     <dimen name="username">40dp</dimen>
+    <dimen name="profileMargin">5dp</dimen>
+    <dimen name="profileWidth">300dp</dimen>
+
 </resources>
 
