@@ -1,4 +1,4 @@
-package com.example.dotify1
+package com.example.dotify1.fragments
 
 
 import android.os.Bundle
@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.dotify1.R
+//import com.example.dotify1.SettingsFragmentArgs
+//import com.example.dotify1.SettingsFragmentDirections
 import com.example.dotify1.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
@@ -32,8 +35,12 @@ class SettingsFragment : Fragment() {
             }
 
             StatisticsBtn.setOnClickListener{
-                navController.navigate(SettingsFragmentDirections.
-                                        actionSettingsFragmentToStatisticsFragment(safeArgs.numOfPlay, safeArgs.curSong))
+                navController.navigate(
+                    SettingsFragmentDirections.actionSettingsFragmentToStatisticsFragment(
+                        safeArgs.numOfPlay,
+                        safeArgs.curSong
+                    )
+                )
             }
 
             aboutBtn.setOnClickListener{

@@ -1,4 +1,4 @@
-package com.example.dotify1
+package com.example.dotify1.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.example.dotify1.R
 import com.example.dotify1.databinding.FragmentStatisticsBinding
+
 
 class StatisticsFragment : Fragment() {
 
@@ -30,5 +32,6 @@ class StatisticsFragment : Fragment() {
         }
 
         return binding.root
+
     }
 }
