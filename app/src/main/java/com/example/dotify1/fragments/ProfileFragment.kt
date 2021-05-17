@@ -41,6 +41,13 @@ class ProfileFragment : Fragment() {
             lifecycleScope.launch {
                 runCatching {
                     errorMsg.setVisibility(View.GONE)
+                    username.setVisibility(View.VISIBLE)
+                    firstName.setVisibility(View.VISIBLE)
+                    lastName.setVisibility(View.VISIBLE)
+                    platform.setVisibility(View.VISIBLE)
+                    profilePic.setVisibility(View.VISIBLE)
+
+                    hasNose.setVisibility(View.GONE)
                     user = apiManager.dataRepository.getUserInfo()
                     username.text = user.username
                     firstName.text = user.firstName
@@ -52,6 +59,12 @@ class ProfileFragment : Fragment() {
 
                 }.onFailure {
                     errorMsg.setVisibility(View.VISIBLE)
+                    username.setVisibility(View.GONE)
+                    firstName.setVisibility(View.GONE)
+                    lastName.setVisibility(View.GONE)
+                    platform.setVisibility(View.GONE)
+                    profilePic.setVisibility(View.GONE)
+                    hasNose.setVisibility(View.GONE)
                 }
             }
         }
