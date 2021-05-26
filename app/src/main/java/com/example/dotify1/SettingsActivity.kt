@@ -8,18 +8,18 @@ import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.ericchee.songdataprovider.Song
-
-private const val SONG = "curSong"
-private const val Num_OF_PLAY = "numOfPlay"
+import com.example.dotify1.PlayerActivity.Companion.NUM_OF_PLAY
 
 
-fun activateSettingsActivity(context: Context, curSong: Song, numOfPlay: Int) {
-    with(context) {
-        startActivity(Intent(this, SettingsActivity::class.java).apply {
-            putExtra(SONG, curSong)
-            putExtra(Num_OF_PLAY, numOfPlay)
-        })
+fun navigateToSettingsActivity(context: Context, song: Song, playCount: Int) = with(context){
+    val intent = Intent(this, SettingsActivity::class.java).apply {
+        val bundle = Bundle().apply {
+            putParcelable(CUR_SONG, song)
+            putInt(NUM_OF_PLAY, playCount)
+        }
+        putExtras(bundle)
     }
+    startActivity(intent)
 }
 
 class SettingsActivity : AppCompatActivity() {

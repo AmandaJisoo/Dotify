@@ -1,5 +1,6 @@
 package com.example.dotify1.repository
 
+import com.example.dotify1.model.SongList
 import com.example.dotify1.model.UserInfo
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -19,10 +20,17 @@ class DataRepository {
         return DotifyService.getAccount()
     }
 
+    suspend fun getSongs(): SongList {
+        return DotifyService.getSongs()
+    }
+
 }
 
 interface DotifyService {
     @GET("echeeUW/codesnippets/master/user_info.json")
     suspend fun getAccount(): UserInfo
+
+    @GET("echeeUW/codesnippets/master/musiclibrary.json")
+    suspend fun getSongs(): SongList
 
 }

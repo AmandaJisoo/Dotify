@@ -9,7 +9,7 @@ import com.ericchee.songdataprovider.Song
 import com.ericchee.songdataprovider.SongDataProvider
 import com.example.dotify1.databinding.ActivitySongListBinding
 
-private const val CUR_SONG = "curSong"
+const val CUR_SONG = "curSong"
 
 class SongListActivity : AppCompatActivity() {
 
@@ -47,7 +47,6 @@ class SongListActivity : AppCompatActivity() {
                 onClickToSpecificAlbum()
             }
 
-            //restore information when start
             if (savedInstanceState != null) {
                 val savedCurrentlyPlaying = savedInstanceState.getParcelable<Song>(CUR_SONG)
                 if (savedCurrentlyPlaying != null ) {
@@ -59,6 +58,8 @@ class SongListActivity : AppCompatActivity() {
                 }
             }
         }
+
+
     }
 
 

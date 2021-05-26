@@ -25,8 +25,7 @@
     <string name="userNamePlaceholder">Username</string>
     <string name="fetchError">User profile download failed</string>
     <string name="profileDescription">User profile pic</string>
-
-
-
-
+    <string name="updateMsg">New Song Notification</string>
+    <string name="notification_artist_format">New Song Updated By %s</string>
+    <string name="new_song_channel">New Song Channel</string>
 </resources>

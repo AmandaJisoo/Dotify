@@ -1,30 +1,39 @@
 package com.example.dotify1.fragments
 
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.dotify1.R
+import com.ericchee.songdataprovider.Song
+import com.example.dotify1.*
 //import com.example.dotify1.SettingsFragmentArgs
 //import com.example.dotify1.SettingsFragmentDirections
 import com.example.dotify1.databinding.FragmentSettingsBinding
+import com.example.dotify1.manager.NotificatonManager
 
 class SettingsFragment : Fragment() {
 
     private val navController by lazy { findNavController() }
+    private val dotifyApplication by lazy { requireActivity().application as DotifyApplication }
+    private val preferences by lazy { dotifyApplication.preferences }
     private val safeArgs: SettingsFragmentArgs by navArgs()
+    private val newSongNotificationManager: NotificatonManager by lazy { dotifyApplication.newSongNotificationManager }
 
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentSettingsBinding.inflate(inflater)
         (requireActivity() as AppCompatActivity).supportActionBar?.title = "Settings"
 
@@ -47,7 +56,26 @@ class SettingsFragment : Fragment() {
                 navController.navigate(R.id.aboutFragment)
             }
 
+
+            //notifiaction begins
+            notificatonBtn.isChecked = preferences.getBoolean(NOTIFICATION_ON, false)
+
+
+            notificatonBtn.setOnCheckedChangeListener { _, isChecked ->
+                preferences.edit {
+                    putBoolean(NOTIFICATION_ON, isChecked)
+                }
+
+                if (isChecked) {
+                    Log.i("isChecked Amanda", "true")
+                    newSongNotificationManager.triggerNotificationRepetitive()
+                } else {
+                    Log.i("isChecked Amanda", "false")
+                    newSongNotificationManager.cancelNotificationRepetitive()
+                }
+            }
         }
+
         return binding.root
     }
 }

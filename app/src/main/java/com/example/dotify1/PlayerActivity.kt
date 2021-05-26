@@ -1,5 +1,7 @@
 package com.example.dotify1
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -8,13 +10,22 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
 import androidx.annotation.RequiresApi
+import coil.load
 import com.ericchee.songdataprovider.Song
+import com.example.dotify1.databinding.ActivityMainBinding
 import kotlin.random.Random
 
+
+fun navigateToPlayerActivity(context: Context) = with(context){
+    val intent = Intent(this, PlayerActivity::class.java).apply {
+    }
+    startActivity(intent)
+}
 
 class PlayerActivity : AppCompatActivity() {
     private var initalNumOfPlay: Int = Random.nextInt(20, 200)
     private lateinit var curSong: Song
+    private lateinit var binding: ActivityMainBinding
 
     companion object {
         const val CUR_SONG = "curSong"
@@ -31,6 +42,34 @@ class PlayerActivity : AppCompatActivity() {
         val songCount = findViewById<TextView>(R.id.numOfPlay)
 
 
+        val DotifyApplication = (application as DotifyApplication)
+        binding = ActivityMainBinding.inflate(layoutInflater).apply { setContentView(root) }
+
+        with(binding) {
+            DotifyApplication.selectedSong?.let { nonNullSongObj ->
+                albumImage.load(nonNullSongObj.largeImageID)
+                albumTitle.text = nonNullSongObj.title
+                artist.text = nonNullSongObj.artist
+            }
+
+            setUpNumOfPlay()
+            setUpPlayBtn()
+            setUpPreviousButton()
+            setUpNextButton()
+            changeAlbumCoverColor()
+        }
+
+        if (savedInstanceState != null) {
+            songCount.text =  savedInstanceState.getInt(NUM_OF_PLAY, 0).toString()
+            initalNumOfPlay = savedInstanceState.getInt(NUM_OF_PLAY, 0)
+        } else  {
+            val song: Song? = intent.extras?.getParcelable(CUR_SONG)
+            if(song != null) {
+                DotifyApplication.selectedSong = song
+            }
+        }
+
+
         if (pickedSong != null) {
             curSong = pickedSong
             val albumImage = findViewById<ImageButton>(R.id.albumImage);
@@ -44,18 +83,6 @@ class PlayerActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        if (savedInstanceState != null) {
-            songCount.text =  savedInstanceState.getInt(NUM_OF_PLAY, 0).toString()
-            initalNumOfPlay = savedInstanceState.getInt(NUM_OF_PLAY, 0)
-        } else  {
-            songCount.text = initalNumOfPlay.toString()
-        }
-
-        setUpNumOfPlay()
-        setUpPlayBtn()
-        setUpPreviousButton()
-        setUpNextButton()
-        chageAlbumCoverColor()
     }
 
 
@@ -88,7 +115,7 @@ class PlayerActivity : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    fun chageAlbumCoverColor() {
+    fun changeAlbumCoverColor() {
         val albumCover = findViewById<ImageButton>(R.id.albumImage)
         val numOfPlay = findViewById<TextView>(R.id.numOfPlay)
         albumCover.setOnLongClickListener() {
@@ -98,31 +125,24 @@ class PlayerActivity : AppCompatActivity() {
         }
     }
 
-//    fun setUpSettingsButton() {
-//        val nextPlatBtn= findViewById<Button>(R.id.settingBtn)
-//        nextPlatBtn.setOnClickListener() {
-//            setUpSettingActivity()
-//        }
-//    }
-
-    private fun setUpSettingActivity() {
-        activateSettingsActivity(this@PlayerActivity, curSong, initalNumOfPlay)
-    }
+    
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-
-
         if (item.itemId == android.R.id.home) {
             finish()
             return true
         }
 
         if (item.itemId == R.id.action_settings) {
-            setUpSettingActivity()
+            val DotifyApp = (application as DotifyApplication)
+            when(item.itemId) {
+                R.id.action_settings -> {
+                    DotifyApp.selectedSong?.let { nonNullSongObj ->
+                        navigateToSettingsActivity(this@PlayerActivity, nonNullSongObj, initalNumOfPlay)
+                    }
+                }
+            }
         }
-
-
         return super.onOptionsItemSelected(item)
     }
 
@@ -133,13 +153,7 @@ class PlayerActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.nav_menu_items, menu)
-
         return true
     }
-
-
 }
-
-
-
 
