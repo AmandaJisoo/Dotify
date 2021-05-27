@@ -16,6 +16,8 @@ import com.example.dotify1.databinding.ActivityMainBinding
 import kotlin.random.Random
 
 
+
+
 fun navigateToPlayerActivity(context: Context) = with(context){
     val intent = Intent(this, PlayerActivity::class.java).apply {
     }
@@ -134,10 +136,10 @@ class PlayerActivity : AppCompatActivity() {
         }
 
         if (item.itemId == R.id.action_settings) {
-            val DotifyApp = (application as DotifyApplication)
+            val dotifyApplication = (application as DotifyApplication)
             when(item.itemId) {
                 R.id.action_settings -> {
-                    DotifyApp.selectedSong?.let { nonNullSongObj ->
+                    dotifyApplication.selectedSong?.let { nonNullSongObj ->
                         navigateToSettingsActivity(this@PlayerActivity, nonNullSongObj, initalNumOfPlay)
                     }
                 }
