@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import coil.load
 import com.example.dotify1.R
 import com.example.dotify1.databinding.FragmentStatisticsBinding
 
@@ -24,7 +25,7 @@ class StatisticsFragment : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.title = "Statistics"
 
         with(binding) {
-            settingAlbumCover.setImageResource(safeArgs.curSong.largeImageID)
+            settingAlbumCover.load(safeArgs.curSong.largeImageURL)
             numOfPlay.text = root.context.getString(
                 R.string.statInfo,
                 safeArgs.curSong.title,
