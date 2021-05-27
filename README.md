@@ -3,13 +3,15 @@
 ## Your App by Amanda Park
 ## App Description
 This is a music app like Spotify
-1. Make Network request
-2. Use UI that displays JSON/Model data 
-3. Show remote images and show default image when it fails
+1. Use work manager to repeatedly send a notification
+2. Allow user to turn on or off the notification through UI
+3. The notification is dismissed once user clicks 
+4. Make HTTP fetch to get songs loaded from API
 
 ## Extra credit
 I have completed the following 
-1. Add pull down to refresh function to your activity to trigger an HTTP fetch (+.25)
+1. FOR DOTIFY project ONLY: In requirement 2.b.v.2, tapping the notification should launch PlayerActivity
+that passes the song data to the activity to show the song in the player (+1)
 
 
 
