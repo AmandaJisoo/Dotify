@@ -61,16 +61,15 @@ class SettingsFragment : Fragment() {
             notificatonBtn.isChecked = preferences.getBoolean(NOTIFICATION_ON, false)
 
 
-            notificatonBtn.setOnCheckedChangeListener { _, isChecked ->
+            notificatonBtn.setOnCheckedChangeListener { _, isOn ->
                 preferences.edit {
-                    putBoolean(NOTIFICATION_ON, isChecked)
+                    putBoolean(NOTIFICATION_ON, isOn)
                 }
 
-                if (isChecked) {
-                    Log.i("isChecked Amanda", "true")
+                //TODO: maybe here?
+                if (isOn) {
                     newSongNotificationManager.triggerNotificationRepetitive()
                 } else {
-                    Log.i("isChecked Amanda", "false")
                     newSongNotificationManager.cancelNotificationRepetitive()
                 }
             }

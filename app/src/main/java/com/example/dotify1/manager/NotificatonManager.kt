@@ -50,8 +50,7 @@ class NotificatonManager(private val context: Context){
            return
         }
 
-        //20, TimeUnit.MINUTES
-        val requestNotification = PeriodicWorkRequestBuilder<SongNotificationWorker>(5, TimeUnit.SECONDS)
+        val requestNotification = PeriodicWorkRequestBuilder<SongNotificationWorker>(20, TimeUnit.MINUTES)
             .setInitialDelay(5, TimeUnit.SECONDS)
             .setConstraints(
                 Constraints.Builder()
@@ -82,10 +81,5 @@ class NotificatonManager(private val context: Context){
 
     fun updateSongList(songs: SongList) {
         this.songs  = songs
-    }
-
-    private fun selectRandomSongFromList(): Song {
-        val randomSong =  SongDataProvider.getAllSongs()
-        return randomSong.random()
     }
 }

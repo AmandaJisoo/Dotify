@@ -1,6 +1,6 @@
 package com.example.dotify1.manager
 
-import android.R
+
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -12,80 +12,83 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.ericchee.songdataprovider.Song
-import com.ericchee.songdataprovider.SongDataProvider
 import com.example.dotify1.CUR_SONG
 import com.example.dotify1.DotifyApplication
 import com.example.dotify1.PlayerActivity
+import com.example.dotify1.R
 import java.lang.Exception
 import kotlin.random.Random
 
 private const val NEW_SONG_CHANNEL_ID = "NEW_SONG_CHANNEL_ID"
 
 class SongNotificationWorker (
-    private val context: Context,
-    workerParameters: WorkerParameters
-): CoroutineWorker(context, workerParameters) {
+                            private val context: Context,
+                            workerParameters: WorkerParameters):
+                            CoroutineWorker(context, workerParameters) {
 
     private val application by lazy { context.applicationContext as DotifyApplication }
     private val dataRepository by lazy { application.dataRepository }
     private val newSongNotificationManager by lazy { application.newSongNotificationManager }
+    private val DotifyApplication by lazy { context.applicationContext as DotifyApplication }
+
     private val notificationManager = NotificationManagerCompat.from(context)
-    private val DotifyApp by lazy { context.applicationContext as DotifyApplication }
 
     override suspend fun doWork(): Result {
-        initNewSongChannel()
-        val allSong = DotifyApp.dataRepository.getSongs()
-        val songs: List<Song> = allSong.songs
-        val randomSong: Song = songs.random()
+        initNewSongNotificationChannel()
+
+        val selectedSong = selectRandomSong()
 
         return try {
-            publishNewSongNotification(randomSong)
-            val library = dataRepository.getSongs()
-            newSongNotificationManager.updateSongList(library)
+            publishNewSongNotification(selectedSong)
+            val songs = dataRepository.getSongs()
+            newSongNotificationManager.updateSongList(songs)
             Result.success()
         }catch(ex: Exception){
             Result.failure()
         }
     }
 
+    private suspend fun selectRandomSong(): Song {
+        val listOfSongs = DotifyApplication.dataRepository.getSongs()
+        val songs: List<Song> = listOfSongs.songs
+        return songs.random()
+    }
 
-
-    private fun publishNewSongNotification(selectedSong: Song) {
+    private fun publishNewSongNotification(curSong: Song) {
         val intent = Intent(context, PlayerActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            putExtra(CUR_SONG, selectedSong)
+            putExtra(CUR_SONG, curSong)
         }
         val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
 
-        //Here: WRONG asset
         val builder = NotificationCompat.Builder(context, NEW_SONG_CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_btn_speak_now)
-            .setContentTitle("${selectedSong.artist} just released a new song!!!")
-            .setContentText("Listen to ${selectedSong.title} now on Dotify")
-            .setContentIntent(pendingIntent)    // sets the action when user clicks on notification
-            .setAutoCancel(true)    // This will dismiss the notification tap
+            .setSmallIcon(R.drawable.ic_baseline_music_note_24)
+            .setContentTitle(context.getString(R.string.newSongMsg, curSong.artist))
+            .setContentText(context.getString(R.string.newSongMsg2, curSong.title))
+            .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
+        //TODO
         with(notificationManager) {
-            val notificationId = kotlin.random.Random.nextInt()
+            val notificationId = Random.nextInt()
             notify(notificationId, builder.build())
         }
     }
 
 
-
-    private fun initNewSongChannel() {
+    private fun initNewSongNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "New Uploaded Music"
-            val descriptionText = "Notification About new song"
+            val name = "Channel For Newly Updated Song"
+            val descriptionText = "Notification About New Song"
             val importance = NotificationManager.IMPORTANCE_DEFAULT
 
             val channel = NotificationChannel(NEW_SONG_CHANNEL_ID, name, importance).apply {
                 description = descriptionText
             }
-
             notificationManager.createNotificationChannel(channel)
         }
     }
 }
+

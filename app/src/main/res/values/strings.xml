@@ -28,4 +28,7 @@
     <string name="updateMsg">New Song Notification</string>
     <string name="notification_artist_format">New Song Updated By %s</string>
     <string name="new_song_channel">New Song Channel</string>
+    <string name="newSongMsg">%s just released a new song!!!</string>
+    <string name="newSongMsg2">Listen to %s now on Dotify</string>
+
 </resources>
