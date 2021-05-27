@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.ericchee.songdataprovider.Song
 import com.example.dotify1.manager.ApiManager
-import com.example.dotify1.manager.NotificatonManager
+import com.example.dotify1.manager.NotificationManager
 import com.example.dotify1.repository.DataRepository
 
 const val DOTIFY_SETTING_PREFERENCE = "DOTIFY_SETTINGS_PREFERENCES"
@@ -15,7 +15,7 @@ class DotifyApplication : Application() {
 
     lateinit var dataRepository: DataRepository
     lateinit var apiManager: ApiManager
-    lateinit var newSongNotificationManager: NotificatonManager
+    lateinit var newSongNotificationManager: NotificationManager
     lateinit var preferences: SharedPreferences
     var selectedSong : Song? = null
 
@@ -25,7 +25,7 @@ class DotifyApplication : Application() {
 
         this.dataRepository = DataRepository()
         this.apiManager = ApiManager()
-        this.newSongNotificationManager = NotificatonManager(this)
+        this.newSongNotificationManager = NotificationManager(this)
 
         this.preferences = getSharedPreferences(DOTIFY_SETTING_PREFERENCE, Context.MODE_PRIVATE)
 

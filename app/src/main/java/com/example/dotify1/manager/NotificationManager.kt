@@ -1,21 +1,8 @@
 package com.example.dotify1.manager
 
-import android.R
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Context
-import android.content.Intent
-import android.content.res.Resources
-import android.graphics.drawable.Drawable
-import android.net.wifi.WifiConfiguration.AuthAlgorithm.strings
-import android.os.Build
-import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.work.*
-import com.ericchee.songdataprovider.Song
-import com.ericchee.songdataprovider.SongDataProvider
-import com.example.dotify1.PlayerActivity
 import com.example.dotify1.model.SongList
 import java.util.concurrent.TimeUnit
 
@@ -23,9 +10,7 @@ import java.util.concurrent.TimeUnit
 private const val NEW_UPLOADED_MUSIC = "New Uploaded Music"
 
 
-class NotificatonManager(private val context: Context){
-
-
+class NotificationManager(private val context: Context){
     private val workManager: WorkManager = WorkManager.getInstance(context)
     private val newSongNotificationManager = NotificationManagerCompat.from(context)
     private var songs: SongList? = null
@@ -77,7 +62,6 @@ class NotificatonManager(private val context: Context){
             }
         }
     }
-
 
     fun updateSongList(songs: SongList) {
         this.songs  = songs

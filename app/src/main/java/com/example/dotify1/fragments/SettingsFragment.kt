@@ -1,10 +1,7 @@
 package com.example.dotify1.fragments
 
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,12 +10,11 @@ import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.ericchee.songdataprovider.Song
 import com.example.dotify1.*
 //import com.example.dotify1.SettingsFragmentArgs
 //import com.example.dotify1.SettingsFragmentDirections
 import com.example.dotify1.databinding.FragmentSettingsBinding
-import com.example.dotify1.manager.NotificatonManager
+import com.example.dotify1.manager.NotificationManager
 
 class SettingsFragment : Fragment() {
 
@@ -26,7 +22,7 @@ class SettingsFragment : Fragment() {
     private val dotifyApplication by lazy { requireActivity().application as DotifyApplication }
     private val preferences by lazy { dotifyApplication.preferences }
     private val safeArgs: SettingsFragmentArgs by navArgs()
-    private val newSongNotificationManager: NotificatonManager by lazy { dotifyApplication.newSongNotificationManager }
+    private val newSongNotificationManager: NotificationManager by lazy { dotifyApplication.newSongNotificationManager }
 
 
     override fun onCreateView(

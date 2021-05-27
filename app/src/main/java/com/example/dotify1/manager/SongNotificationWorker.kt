@@ -1,6 +1,5 @@
 package com.example.dotify1.manager
 
-
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -66,11 +65,10 @@ class SongNotificationWorker (
             .setSmallIcon(R.drawable.ic_baseline_music_note_24)
             .setContentTitle(context.getString(R.string.newSongMsg, curSong.artist))
             .setContentText(context.getString(R.string.newSongMsg2, curSong.title))
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
-        //TODO
         with(notificationManager) {
             val notificationId = Random.nextInt()
             notify(notificationId, builder.build())
