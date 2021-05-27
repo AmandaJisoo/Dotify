@@ -1,9 +1,9 @@
 package com.example.dotify1.manager
 
+import SongList
 import android.content.Context
 import androidx.core.app.NotificationManagerCompat
 import androidx.work.*
-import com.example.dotify1.model.SongList
 import java.util.concurrent.TimeUnit
 
 
@@ -14,21 +14,6 @@ class NotificationManager(private val context: Context){
     private val workManager: WorkManager = WorkManager.getInstance(context)
     private val newSongNotificationManager = NotificationManagerCompat.from(context)
     private var songs: SongList? = null
-
-    fun triggerNotificationOnce() {
-        val request = OneTimeWorkRequestBuilder<SongNotificationWorker>()
-            .setInitialDelay(5, TimeUnit.SECONDS)
-            .setConstraints(
-                Constraints.Builder()
-                    .setRequiresBatteryNotLow(true)
-                    .setRequiredNetworkType(NetworkType.CONNECTED)
-                    .build()
-            )
-            .addTag(NEW_UPLOADED_MUSIC)
-            .build()
-
-        workManager.enqueue(request)
-    }
 
     fun triggerNotificationRepetitive() {
         if (isRepetitiveNotificationOn()) {

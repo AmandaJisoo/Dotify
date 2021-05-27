@@ -10,10 +10,9 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.ericchee.songdataprovider.Song
-import com.example.dotify1.CUR_SONG
 import com.example.dotify1.DotifyApplication
 import com.example.dotify1.PlayerActivity
+import com.example.dotify1.PlayerActivity.Companion.CUR_SONG
 import com.example.dotify1.R
 import java.lang.Exception
 import kotlin.random.Random
@@ -38,22 +37,23 @@ class SongNotificationWorker (
         val selectedSong = selectRandomSong()
 
         return try {
-            publishNewSongNotification(selectedSong)
             val songs = dataRepository.getSongs()
             newSongNotificationManager.updateSongList(songs)
+            publishNewSongNotification(selectedSong)
+
             Result.success()
         }catch(ex: Exception){
             Result.failure()
         }
     }
 
-    private suspend fun selectRandomSong(): Song {
+    private suspend fun selectRandomSong(): com.example.dotify1.model.Song {
         val listOfSongs = DotifyApplication.dataRepository.getSongs()
-        val songs: List<Song> = listOfSongs.songs
+        val songs: List<com.example.dotify1.model.Song> = listOfSongs.songs
         return songs.random()
     }
 
-    private fun publishNewSongNotification(curSong: Song) {
+    private fun publishNewSongNotification(curSong: com.example.dotify1.model.Song) {
         val intent = Intent(context, PlayerActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             putExtra(CUR_SONG, curSong)

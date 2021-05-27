@@ -3,9 +3,10 @@ package com.example.dotify1
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
-import com.ericchee.songdataprovider.Song
+
 import com.example.dotify1.manager.ApiManager
 import com.example.dotify1.manager.NotificationManager
+import com.example.dotify1.model.Song
 import com.example.dotify1.repository.DataRepository
 
 const val DOTIFY_SETTING_PREFERENCE = "DOTIFY_SETTINGS_PREFERENCES"

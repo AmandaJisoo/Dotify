@@ -2,13 +2,17 @@ package com.example.dotify1
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.ericchee.songdataprovider.Song
+import coil.load
 import com.example.dotify1.databinding.SongBinding
+import com.example.dotify1.model.Song
 
-class SongListAdapter(var songList: MutableList<Song>) : RecyclerView.Adapter<SongListAdapter.SongViewHolder>() {
-    var onSongClickListener: ((song: Song) -> Unit)? = null
+
+class SongListAdapter(private var listOfSongs: List<Song>): RecyclerView.Adapter<SongListAdapter.SongViewHolder>() {
+
+        var onSongClickListener: ((song: Song) -> Unit)? = null
     var onSongLongPressClickListener: ((title: String, position: Int) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongViewHolder {
@@ -16,15 +20,15 @@ class SongListAdapter(var songList: MutableList<Song>) : RecyclerView.Adapter<So
         return SongViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = songList.size
+    override fun getItemCount(): Int = listOfSongs.size
 
     override fun onBindViewHolder(holder: SongViewHolder, position: Int) {
-        val curSong = songList[position]
+        val curSong = listOfSongs[position]
 
         with(holder.binding) {
             songTitle.text = curSong.title
             singer.text = curSong.artist
-            albumCover.setImageResource(curSong.smallImageID)
+            albumCover.load(curSong.smallImageURL)
             song.setOnClickListener{
                 onSongClickListener?.invoke(curSong)
             }
@@ -39,10 +43,10 @@ class SongListAdapter(var songList: MutableList<Song>) : RecyclerView.Adapter<So
 
     fun updateSongs (shuffledSongs: List<Song>) {
         // Animated way of applying updates to list
-        val checkDiff = SongDiffCallback(songList, shuffledSongs)
+        val checkDiff = SongDiffCallback(shuffledSongs as MutableList<Song>, listOfSongs)
         val diffResult = DiffUtil.calculateDiff(checkDiff)
         diffResult.dispatchUpdatesTo(this)
-        songList = shuffledSongs as MutableList<Song>
+        listOfSongs = shuffledSongs
     }
 
     class SongViewHolder(val binding: SongBinding): RecyclerView.ViewHolder(binding.root)

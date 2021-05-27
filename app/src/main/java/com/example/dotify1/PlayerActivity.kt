@@ -11,8 +11,8 @@ import android.view.MenuItem
 import android.widget.*
 import androidx.annotation.RequiresApi
 import coil.load
-import com.ericchee.songdataprovider.Song
 import com.example.dotify1.databinding.ActivityMainBinding
+import com.example.dotify1.model.Song
 import kotlin.random.Random
 
 
@@ -47,29 +47,36 @@ class PlayerActivity : AppCompatActivity() {
         val DotifyApplication = (application as DotifyApplication)
         binding = ActivityMainBinding.inflate(layoutInflater).apply { setContentView(root) }
 
-        with(binding) {
-            DotifyApplication.selectedSong?.let { nonNullSongObj ->
-                albumImage.load(nonNullSongObj.largeImageID)
-                albumTitle.text = nonNullSongObj.title
-                artist.text = nonNullSongObj.artist
-            }
-
-            setUpNumOfPlay()
-            setUpPlayBtn()
-            setUpPreviousButton()
-            setUpNextButton()
-            changeAlbumCoverColor()
-        }
-
         if (savedInstanceState != null) {
             songCount.text =  savedInstanceState.getInt(NUM_OF_PLAY, 0).toString()
             initalNumOfPlay = savedInstanceState.getInt(NUM_OF_PLAY, 0)
         } else  {
-            val song: Song? = intent.extras?.getParcelable(CUR_SONG)
-            if(song != null) {
-                DotifyApplication.selectedSong = song
+            val intentSong: Song? = intent.extras?.getParcelable(CUR_SONG)
+            if(intentSong != null) {
+                val songFromIntent: Song? = intent.extras?.getParcelable(CUR_SONG)
+                if(songFromIntent != null) {
+                    DotifyApplication.selectedSong = intentSong
+                }
             }
         }
+
+        with(binding) {
+            DotifyApplication.selectedSong?.let { selected ->
+                albumImage.load(selected.smallImageURL) {
+                    crossfade(true)
+                    placeholder(R.drawable.doraemon)
+                }
+                albumTitle.text = selected.title
+                artist.text = selected.artist
+            }
+        }
+
+        setUpNumOfPlay()
+        setUpPlayBtn()
+        setUpPreviousButton()
+        setUpNextButton()
+        changeAlbumCoverColor()
+
 
 
         if (pickedSong != null) {
@@ -78,7 +85,7 @@ class PlayerActivity : AppCompatActivity() {
             val albumTitle = findViewById<TextView>(R.id.albumTitle);
             val artist = findViewById<TextView>(R.id.artist);
 
-            albumImage.setImageResource(pickedSong.largeImageID)
+            albumImage.load(pickedSong.largeImageURL)
             albumTitle.text = pickedSong.title
             artist.text = pickedSong.artist
         }
@@ -137,12 +144,9 @@ class PlayerActivity : AppCompatActivity() {
 
         if (item.itemId == R.id.action_settings) {
             val dotifyApplication = (application as DotifyApplication)
-            when(item.itemId) {
-                R.id.action_settings -> {
-                    dotifyApplication.selectedSong?.let { nonNullSongObj ->
-                        navigateToSettingsActivity(this@PlayerActivity, nonNullSongObj, initalNumOfPlay)
-                    }
-                }
+
+            dotifyApplication.selectedSong?.let { nonNullSongObj ->
+                navigateToSettingsActivity(this@PlayerActivity, nonNullSongObj, initalNumOfPlay)
             }
         }
         return super.onOptionsItemSelected(item)

@@ -1,6 +1,6 @@
 package com.example.dotify1.repository
 
-import com.example.dotify1.model.SongList
+import SongList
 import com.example.dotify1.model.UserInfo
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
