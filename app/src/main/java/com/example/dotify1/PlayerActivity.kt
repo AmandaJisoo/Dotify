@@ -53,10 +53,7 @@ class PlayerActivity : AppCompatActivity() {
         } else  {
             val intentSong: Song? = intent.extras?.getParcelable(CUR_SONG)
             if(intentSong != null) {
-                val songFromIntent: Song? = intent.extras?.getParcelable(CUR_SONG)
-                if(songFromIntent != null) {
-                    DotifyApplication.selectedSong = intentSong
-                }
+                DotifyApplication.selectedSong = intentSong
             }
         }
 

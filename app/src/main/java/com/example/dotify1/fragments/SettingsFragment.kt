@@ -53,7 +53,7 @@ class SettingsFragment : Fragment() {
             }
 
 
-            //notifiaction begins
+            //notification begins
             notificatonBtn.isChecked = preferences.getBoolean(NOTIFICATION_ON, false)
 
 

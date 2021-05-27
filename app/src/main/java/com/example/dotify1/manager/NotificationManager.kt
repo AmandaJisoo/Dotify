@@ -12,7 +12,6 @@ private const val NEW_UPLOADED_MUSIC = "New Uploaded Music"
 
 class NotificationManager(private val context: Context){
     private val workManager: WorkManager = WorkManager.getInstance(context)
-    private val newSongNotificationManager = NotificationManagerCompat.from(context)
     private var songs: SongList? = null
 
     fun triggerNotificationRepetitive() {

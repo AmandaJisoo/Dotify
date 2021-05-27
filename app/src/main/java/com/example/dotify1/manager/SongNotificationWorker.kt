@@ -32,7 +32,7 @@ class SongNotificationWorker (
     private val notificationManager = NotificationManagerCompat.from(context)
 
     override suspend fun doWork(): Result {
-        initNewSongNotificationChannel()
+        createNewSongNotificationChannel()
 
         val selectedSong = selectRandomSong()
 
@@ -76,7 +76,7 @@ class SongNotificationWorker (
     }
 
 
-    private fun initNewSongNotificationChannel() {
+    private fun createNewSongNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = "Channel For Newly Updated Song"
             val descriptionText = "Notification About New Song"
