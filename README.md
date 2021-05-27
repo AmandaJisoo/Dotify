@@ -17,4 +17,8 @@ that passes the song data to the activity to show the song in the player (+1)
 
 ## Demo Video
 
-https://drive.google.com/file/d/1wTNxnvJEA9fzIsOlw-I4ikaZNXYejXoU/view?usp=sharing
+https://drive.google.com/file/d/1s3jXWM88Y8INzKvGGFn5PmUCy4EuGg9U/view?usp=sharing
+
+## Alert
+Sometimes the initally app could load slow so you might see Doraemon play screen for a brieft momemt. Please wait until you see the list of song view on the screen. 
+
